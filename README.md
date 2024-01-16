@@ -34,7 +34,9 @@ const Book = mongoose.model('Book', bookSchema);
 # It creates a model based on schema
 ```
 
-### CRUD operations
+## CRUD operations
+
+### Appending a new document to the collection
 ```sh
 const newBook = {
             title:'Rich Dad Poor Dad',
@@ -43,10 +45,24 @@ const newBook = {
         };
         const book = await Book.create(newBook);
 ```
+### Searching using Mongoose
 ```sh
 const books = await Book.find({});
 # Returns all the rows in the database
+
+const book = await Book.findById(id);
+# Returns a book with specific id
 ```
 
+### Modifications using Mongoose
+```sh
+const book = await Book.findByIdAndUpdate(id, updated_data);
+# updates the data of a particular id
+```
+
+```sh
+const book = await Book.findByIdAndDelete(id);
+# Deletes a book with a particular id
+```
 
 
